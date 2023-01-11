@@ -1,0 +1,282 @@
+$white: #ffffff
+$grey: #EDEDED
+$magenta: #ff267e
+$green: #05C489
+$green-hover: #05b37c
+$blue: #00003D
+$blue-lighter: #000055
+
+$font-suisse-med: SuisseIntl-Medium, sans-serif
+$font-suisse-semb: SuisseIntl-SemiBold, sans-serif
+$font-wulkan: WulkanDisplay, sans-serif
+
+.main-link
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+
+
+body
+  background: $blue
+
+.brand
+  position: relative
+  z-index: 10
+  pointer-events: none
+  width: 100%
+  height: 100%
+  overflow: hidden
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
+  overscroll-behavior: none
+  display: flex
+  flex-direction: column
+  img
+    max-width: 100%
+    height: auto
+  &__main
+    height: 100%
+    position: relative
+    &-logo
+      position: absolute
+      top: 0
+      right: 0
+    &-left
+      position: absolute
+      left: 34px
+      bottom: 40px
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      z-index: 1
+    &-slogan
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      .first-line,.second-line,.third-line
+        position: relative
+        transform: translateX(-120%)
+        white-space: nowrap
+        &:before
+          content: ""
+          background: $magenta
+          position: absolute
+          top: 0
+          bottom: 0
+          left: 0
+          right: 0
+          z-index: 1
+      .first-line
+        animation: .6s sloganIn linear forwards
+        display: flex
+        &:before
+          animation: .6s line .6s forwards
+      .second-line
+        animation: .6s sloganIn2 .6s linear forwards
+        &:before
+          animation: .6s line 1.2s forwards
+      .third-line
+        animation: .6s sloganIn3 1.2s linear forwards
+        &:before
+          animation: .6s line 1.8s forwards
+      p
+        font-family: $font-suisse-semb
+        font-size: 38px
+        line-height: 38px
+        color: $blue-lighter
+        background: $magenta
+        text-transform: uppercase
+        padding: 15px 13px 13px
+        opacity: 0
+        position: relative
+        animation: .5s opacityTxt .5s linear forwards
+        span
+          font-family: $font-wulkan
+    &-btn
+      pointer-events: initial
+      margin-top: 30px
+      font-family: $font-suisse-semb
+      font-size: 24px
+      line-height: 24px
+      text-transform: uppercase
+      letter-spacing: .08em
+      color: $blue-lighter
+      background: $green
+      border-radius: 4px
+      padding: 33px 118px 32px
+      animation: .5s zoomBtn 2s ease-in-out forwards
+      &:hover
+        background: $green-hover
+    &-pers
+      height: 950px
+      position: absolute
+      top: 0
+      right: 21.5%
+      animation: 7s zoomPers ease-in-out infinite
+      img
+        height: 114%
+    &-bird
+      height: 518px
+      position: absolute
+      top: 45%
+      right: -10px
+      transform-origin: right center
+      animation: 7s zoomBird ease-in-out infinite
+      img
+        height: 114%
+    &-bg
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      z-index: -1
+      animation: 7s zoomBg ease-in-out infinite
+      @media (min-width: 601px) and (orientation: landscape)
+        background: url("../img/bg-desk.jpg") no-repeat 50% 0/cover
+      @media screen and (max-width: 600px) and (orientation: portrait)
+        background: url("../img/bg-mob.jpg") no-repeat 100% 0/cover
+      @media screen and (max-width: 920px) and (orientation: landscape) and (max-height: 450px)
+        background: url("../img/bg-landscape.jpg") no-repeat 100% 0/cover
+      @media screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait)
+        background: url("../img/bg-tab.jpg") no-repeat 100% 0/cover
+  &__footer
+    height: 130px
+    background: $blue
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 0 30px
+    flex-shrink: 0
+    z-index: 1
+    &-bonus
+      display: flex
+      align-items: center
+      &-item
+        display: flex
+        align-items: center
+        margin-right: 107px
+        position: relative
+        &:nth-child(1),
+        &:nth-child(2)
+          &:before
+            content: ""
+            background: url("../img/plus.svg") no-repeat 0 0/contain
+            width: 45px
+            height: 37px
+            display: block
+            position: absolute
+            top: 24%
+            right: -76px
+        &:nth-child(2)
+          .brand__footer-bonus-sum
+            position: relative
+            span
+              font-size: 16px
+              line-height: 16px
+              border: 1px solid $magenta
+              border-radius: 4px
+              color: $grey
+              padding: 3px
+              background: $blue
+              text-transform: uppercase
+              letter-spacing: .02em
+              position: absolute
+              bottom: -8px
+              left: 25px
+              z-index: 1
+              transform: rotate(-4deg)
+        &:nth-child(3)
+          margin-right: 0
+          .brand__footer-bonus-txt
+            max-width: 350px
+            span
+              font-size: 16px
+              line-height: 16px
+              border: 1px solid $magenta
+              border-radius: 4px
+              padding: 3px
+              display: inline-block
+              vertical-align: middle
+              margin-top: -3px
+      &-sum
+        font-family: $font-suisse-med
+        font-size: 70px
+        line-height: 70px
+        color: $magenta
+      &-txt
+        margin-left: 20px
+        font-family: $font-suisse-med
+        font-size: 26px
+        line-height: 31px
+        color: $grey
+        text-transform: uppercase
+        letter-spacing: .02em
+      &-payment
+        flex-shrink: 0
+        margin-top: 5px
+
+@keyframes zoomPers
+  0%
+    transform: scale(1)
+  50%
+    transform: scale(1.1)
+  60%
+    transform: scale(1.1)
+  100%
+    transform: scale(1)
+
+@keyframes zoomBird
+  0%
+    transform: scale(1)
+  50%
+    transform: scale(1.05)
+  60%
+    transform: scale(1.05)
+  100%
+    transform: scale(1)
+
+@keyframes zoomBg
+  0%
+    transform: scale(1) translateX(0)
+  50%
+    transform: scale(1.02) translateX(10px)
+  60%
+    transform: scale(1.02) translateX(10px)
+  100%
+    transform: scale(1) translateX(0)
+
+@keyframes sloganIn
+  from
+    transform: translateX(-120%)
+  to
+    transform: translateX(0)
+
+@keyframes sloganIn2
+  from
+    transform: translateX(-120%)
+  to
+    transform: translateX(0)
+
+@keyframes sloganIn3
+  from
+    transform: translateX(-120%)
+  to
+    transform: translateX(0)
+
+@keyframes opacityTxt
+  to
+    opacity: 1
+
+@keyframes line
+  to
+    left: 100%
+
+@keyframes zoomBtn
+  0%
+    transform: scale(1)
+  50%
+    transform: scale(1.05)
+  100%
+    transform: scale(1)
